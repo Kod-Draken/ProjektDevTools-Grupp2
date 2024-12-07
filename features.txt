@@ -1,0 +1,20 @@
+Show menu
+  - Create player
+  - Show highscore
+  - Quit
+
+Create the player with name and choose weapon
+
+Fight begins
+  - if player is defeated, game over
+  - if player wins, earn "reward"
+    - proceed to next fight
+
+Player wins after defeating "X" opponents
+
+When game_over is reached, write players highscore in the .txt-file
+
+Classes
+main
+FightGame
+Player/Fighter
