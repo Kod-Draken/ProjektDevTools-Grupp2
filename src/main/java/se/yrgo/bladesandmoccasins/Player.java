@@ -4,9 +4,10 @@ public class Player {
     private String name;
     private int hitPoints = 20;
     private int energy = 10;
-    private String weapon;
+    private Weapon weapon;
 
-    public Player(String name) {
+    public Player(String name, String weapon) {
         this.name = name;
+        this.weapon = new Weapon(weapon);
     }
 }
