@@ -13,17 +13,21 @@ public class Weapon {
             }
         }
         switch (weaponType){
-            case GLADUS -> this.damage = Dice.D6;
+            case GLADIUS -> this.damage = Dice.D6;
             case SPEAR -> this.damage = Dice.D8;
             case GREATAXE -> this.damage = Dice.D12;
         }
     }
 
-    private enum Type {
-        GLADUS, SPEAR, GREATAXE
+    enum Type {
+        GLADIUS, SPEAR, GREATAXE
     }
 
-    private enum Dice {
+    enum Dice {
         D6, D8, D12
+    }
+
+    public String getName() {
+        return name;
     }
 }
