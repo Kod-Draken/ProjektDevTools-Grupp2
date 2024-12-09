@@ -19,6 +19,10 @@ public class Weapon {
         }
     }
 
+    public static String getRandomWeapon(){
+        return Type.values()[(int) (Math.random() * Type.values().length)].name();
+    }
+
     enum Type {
         GLADIUS, SPEAR, GREATAXE
     }
