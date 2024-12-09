@@ -10,4 +10,9 @@ public class Player {
         this.name = name;
         this.weapon = new Weapon(weapon);
     }
+
+    @Override
+    public String toString() {
+        return String.format("Name: %s, HitPoints: %d, Energy: %d, Weapon: %s", name, hitPoints, energy, weapon.getName());
+    }
 }

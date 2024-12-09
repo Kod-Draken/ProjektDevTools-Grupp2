@@ -26,4 +26,8 @@ public class Weapon {
     private enum Dice {
         D6, D8, D12
     }
+
+    public String getName() {
+        return name;
+    }
 }

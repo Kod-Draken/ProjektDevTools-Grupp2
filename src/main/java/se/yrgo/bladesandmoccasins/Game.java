@@ -12,22 +12,28 @@ public class Game {
             String name = scanner.nextLine();
 
             System.out.println("Chose a weapon\n1. Gladus\n2. Spear\n3. Greatsword");
-            String weapon = "";
-            int choice = scanner.nextInt();
-            switch (choice) {
-                case 1:
-                    weapon = "Gladus";
-                    break;
-                case 2:
-                    weapon = "Spear";
-                    break;
-                case 3:
-                    weapon = "Greatsword";
-                    break;
-                default:
-                    System.out.println("Something went wrong");
+            String weapon = "No weapon";
+            int choice = Integer.MAX_VALUE;
+            while (choice < 0 || choice > 3) {
+                choice = scanner.nextInt();
+                switch (choice) {
+                    case 1:
+                        weapon = "Gladus";
+                        break;
+                    case 2:
+                        weapon = "Spear";
+                        break;
+                    case 3:
+                        weapon = "Greatsword";
+                        break;
+                    default:
+                        System.out.println("Something went wrong");
+                        break;
+                }
             }
             player = new Player(name, weapon);
+            System.out.println(player);
+
         }
     }
 }
