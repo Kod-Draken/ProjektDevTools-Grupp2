@@ -9,4 +9,20 @@ public class Player {
     public Player(String name) {
         this.name = name;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getHitPoints() {
+        return hitPoints;
+    }
+
+    public int getEnergy() {
+        return energy;
+    }
+
+    public String getWeapon() {
+        return weapon;
+    }
 }
