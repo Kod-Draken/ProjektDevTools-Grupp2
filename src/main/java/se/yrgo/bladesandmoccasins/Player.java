@@ -10,4 +10,20 @@ public class Player {
         this.name = name;
         this.weapon = new Weapon(weapon);
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getHitPoints() {
+        return hitPoints;
+    }
+
+    public int getEnergy() {
+        return energy;
+    }
+
+    public String getWeapon() {
+        return weapon;
+    }
 }
