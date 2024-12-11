@@ -20,6 +20,14 @@ public class Gladiator {
         this.energy = energy;
     }
 
+    public void heal(int amount){
+        this.hitPoints += amount;
+    }
+
+    public void wound(int amount){
+        this.hitPoints -= amount;
+    }
+
     public String toString() {
         return String.format("Name: %s, HitPoints: %d, Energy: %d, Weapon: %s", name, hitPoints, energy, weapon.getName());
     }
