@@ -5,8 +5,9 @@ public class Arena {
 
     public void fight(Gladiator player){
         Gladiator opponent = generateOpponent();
-        System.out.println("Your opponent is...");
-        System.out.println(opponent);
+        System.out.println("Your opponent is... \n" + opponent);
+
+
     }
 
     private Gladiator generateOpponent(){
