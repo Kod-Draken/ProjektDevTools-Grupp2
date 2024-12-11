@@ -1,12 +1,21 @@
 package se.yrgo.bladesandmoccasins;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Arena {
     private int difficultyModifier = -5;
 
     public void fight(Gladiator player){
         Gladiator opponent = generateOpponent();
+        System.out.println("Travelling to the arena");
         System.out.println("Your opponent is... \n" + opponent);
 
+        while (player.getHitPoints() > 0 && opponent.getHitPoints() > 0){
+            int whoStarts = ThreadLocalRandom.current().nextInt(0, 2);
+            if (whoStarts == 0){
+                player.wound(opponent);
+            }
+        }
 
     }
 
