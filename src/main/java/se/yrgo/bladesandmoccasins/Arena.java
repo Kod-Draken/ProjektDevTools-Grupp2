@@ -13,10 +13,16 @@ public class Arena {
         while (player.getHitPoints() > 0 && opponent.getHitPoints() > 0){
             int whoStarts = ThreadLocalRandom.current().nextInt(0, 2);
             if (whoStarts == 0){
-                player.wound(opponent);
+                player.attack(opponent);
+                opponent.attack(player);
+            }
+            else {
+                opponent.attack(player);
+                player.attack(opponent);
             }
         }
-
+        System.out.println(player);
+        System.out.println(opponent);
     }
 
     private Gladiator generateOpponent(){
