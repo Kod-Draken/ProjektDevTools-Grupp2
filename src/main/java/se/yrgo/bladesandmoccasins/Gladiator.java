@@ -20,6 +20,11 @@ public class Gladiator {
         this.energy = energy;
     }
 
+    public void attack(Gladiator target){
+        // implement a d20 roll to see if attack hits or misses
+        target.wound(weapon.getWeaponType().getDamage());
+    }
+
     public void heal(int amount){
         this.hitPoints += amount;
     }

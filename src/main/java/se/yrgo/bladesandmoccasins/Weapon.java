@@ -4,6 +4,10 @@ public class Weapon {
     private final String name;
     private final WeaponType weaponType;
 
+    /**
+     * Needs fixing badly
+     * @param name
+     */
     public Weapon(String name){
         this.name = name;
 
@@ -13,9 +17,6 @@ public class Weapon {
             if (type.name().equalsIgnoreCase(name)){
                 temp = type;
                 break;
-            }
-            else {
-                throw new IllegalArgumentException("Invalid weapon type: " + type);
             }
         }
         this.weaponType = temp;
@@ -27,5 +28,9 @@ public class Weapon {
 
     public String getName() {
         return name;
+    }
+
+    public WeaponType getWeaponType() {
+        return weaponType;
     }
 }
