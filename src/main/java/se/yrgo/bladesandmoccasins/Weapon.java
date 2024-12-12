@@ -1,37 +1,36 @@
 package se.yrgo.bladesandmoccasins;
 
 public class Weapon {
-    private String name;
-    private Type weaponType;
-    private Dice damage;
+    private final String name;
+    private final WeaponType weaponType;
 
+    /**
+     * Needs fixing badly
+     * @param name
+     */
     public Weapon(String name){
         this.name = name;
-        for (Type type : Type.values()){
+
+        // temporary variable to ensure weaponType is initialized
+        WeaponType temp = WeaponType.GLADIUS;
+        for (WeaponType type : WeaponType.values()){
             if (type.name().equalsIgnoreCase(name)){
-                this.weaponType = type;
+                temp = type;
+                break;
             }
         }
-        switch (weaponType){
-            case GLADIUS -> this.damage = Dice.D6;
-            case SPEAR -> this.damage = Dice.D8;
-            case GREATAXE -> this.damage = Dice.D12;
-        }
+        this.weaponType = temp;
     }
 
     public static String getRandomWeapon(){
-        return Type.values()[(int) (Math.random() * Type.values().length)].name();
-    }
-
-    enum Type {
-        GLADIUS, SPEAR, GREATAXE
-    }
-
-    enum Dice {
-        D6, D8, D12
+        return WeaponType.values()[(int) (Math.random() * WeaponType.values().length)].name();
     }
 
     public String getName() {
         return name;
+    }
+
+    public WeaponType getWeaponType() {
+        return weaponType;
     }
 }
