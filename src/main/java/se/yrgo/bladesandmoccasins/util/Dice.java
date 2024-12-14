@@ -1,5 +1,8 @@
 package se.yrgo.bladesandmoccasins.util;
 
+/**
+ * Represents polyhedral dices, each have its own amount of sides
+ */
 public enum Dice {
     D4(4),
     D6(6),
@@ -18,6 +21,10 @@ public enum Dice {
         return sides;
     }
 
+    /**
+     *
+     * @return one of the faces the die can land on as an int.
+     */
     public int roll() {
         return (int) (Math.random() * sides) + 1;
     }
