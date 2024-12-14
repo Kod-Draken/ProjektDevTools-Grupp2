@@ -1,6 +1,8 @@
 package se.yrgo.bladesandmoccasins.game;
 
 import se.yrgo.bladesandmoccasins.util.Score;
+import se.yrgo.bladesandmoccasins.util.Weapon;
+import se.yrgo.bladesandmoccasins.util.WeaponType;
 
 import java.util.Scanner;
 
@@ -40,7 +42,10 @@ public class Game {
         String name = scanner.nextLine();
 
         System.out.println("You also need a weapon. Choose from the options below:");
-        System.out.println("1. Gladius\n2. Spear\n3. Greataxe");
+        for (WeaponType weapon : WeaponType.values()){
+            System.out.println(weapon.name());
+        }
+
         int weaponChoice = scanner.nextInt();
         scanner.nextLine();
 

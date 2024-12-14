@@ -5,8 +5,11 @@ public class Weapon {
     private final WeaponType weaponType;
 
     /**
-     * Needs fixing badly
-     * @param name
+     * Returns one of the available weapons in the Weapon enum.
+     * The temp variable is supposed to be a failsafe if i/o
+     * goes wrong, the default value returned will therefor
+     * always be Weapon.GLADIUS.
+     * @param provided by the menu in Main-class.
      */
     public Weapon(String name){
         this.name = name;
@@ -22,6 +25,11 @@ public class Weapon {
         this.weaponType = temp;
     }
 
+    /**
+     * This method is used for generating opponents, they will always have
+     * a random weapon, to make the game more random.
+     * @return
+     */
     public static String getRandomWeapon(){
         return WeaponType.values()[(int) (Math.random() * WeaponType.values().length)].name();
     }
