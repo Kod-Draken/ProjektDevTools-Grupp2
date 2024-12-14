@@ -1,4 +1,4 @@
-package se.yrgo.bladesandmoccasins;
+package se.yrgo.bladesandmoccasins.util;
 
 public class Weapon {
     private final String name;

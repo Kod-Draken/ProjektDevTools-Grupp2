@@ -1,4 +1,4 @@
-package se.yrgo.bladesandmoccasins;
+package se.yrgo.bladesandmoccasins.util;
 
 public enum WeaponType {
     GLADIUS(Dice.D6, 2),

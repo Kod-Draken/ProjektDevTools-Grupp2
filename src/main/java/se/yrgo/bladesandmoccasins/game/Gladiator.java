@@ -1,4 +1,6 @@
-package se.yrgo.bladesandmoccasins;
+package se.yrgo.bladesandmoccasins.game;
+
+import se.yrgo.bladesandmoccasins.util.Weapon;
 
 public class Gladiator {
     private final String name;

@@ -1,4 +1,4 @@
-package se.yrgo.bladesandmoccasins;
+package se.yrgo.bladesandmoccasins.util;
 
 public enum Dice {
     D4(4),
