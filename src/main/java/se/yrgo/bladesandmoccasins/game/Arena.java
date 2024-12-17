@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -29,24 +30,45 @@ public class Arena {
      * the player is eventually defeated and the game is over.
      * @param player provided by Main.menu()
      */
-    public void fight(Gladiator player){
+    public void fight(Gladiator player, Scanner scanner) {
         Gladiator opponent = generateOpponent();
-        System.out.println("Travelling to the arena");
-        System.out.println("Your opponent is... \n" + opponent.getName());
 
-        while (!(player.getHitPoints() <= 0) || !(opponent.getHitPoints() <= 0)){
-            int whoStarts = ThreadLocalRandom.current().nextInt(0, 2);
-            if (whoStarts == 0){
-                player.attack(opponent);
-                opponent.attack(player);
+        System.out.println("Travelling to the arena...\n");
+        System.out.println("Your opponent is: " + opponent.getName() + "\n");
+
+        // Determine first turn randomly
+        boolean playerTurn = ThreadLocalRandom.current().nextInt(0, 2) == 0;
+
+        while (player.getHitPoints() > 0 && opponent.getHitPoints() > 0) {
+            if (playerTurn) {
+                System.out.println(player.getName() + "'s turn!");
+                player.turn(opponent, scanner);
+            } else {
+                System.out.println(opponent.getName() + "'s turn!");
+                if (opponent.getEnergy() <= opponent.getWeapon().getWeaponType().getStrain()){
+                    opponent.rest();
+                }
+                else {
+                    opponent.attack(player);
+                }
             }
-            else {
-                opponent.attack(player);
-                player.attack(opponent);
-            }
+
+            // Alternate turns
+            playerTurn = !playerTurn;
+
+            // Display current HP
+            System.out.printf("%n%s HP: %d | %s HP: %d%n",
+                    player.getName(), player.getHitPoints(),
+                    opponent.getName(), opponent.getHitPoints());
+            System.out.println();
         }
-        System.out.println(player);
-        System.out.println(opponent);
+
+        // Announce the winner
+        String winner = player.getHitPoints() > 0 ? player.getName() : opponent.getName();
+        System.out.println(winner + " wins the fight!");
+        if (winner.equals(player.getName())){
+
+        }
     }
 
     /**

@@ -1,6 +1,9 @@
 package se.yrgo.bladesandmoccasins.game;
 
+import se.yrgo.bladesandmoccasins.util.Dice;
 import se.yrgo.bladesandmoccasins.util.Weapon;
+
+import java.util.Scanner;
 
 public class Gladiator {
     private final String name;
@@ -34,6 +37,21 @@ public class Gladiator {
         this.energy = energy;
     }
 
+    public void turn(Gladiator target, Scanner scanner){
+        System.out.println("""
+                What action would you like to take?
+                1. Attack
+                2. Heal
+                3. Rest
+                """);
+        int choice = scanner.nextInt();
+        switch (choice){
+            case 1: attack(target); break;
+            case 2: heal(); break;
+            case 3: rest(); break;
+        }
+    }
+
     /**
      * The main procedure of a duel is the attack, we roll the dice
      * for the weapon used by the gladiator, the damage is applied
@@ -42,16 +60,18 @@ public class Gladiator {
      */
     public void attack(Gladiator target){
         // implement a d20 roll to see if attack hits or misses
-        target.wound(weapon.getWeaponType().getDamage());
+        int damage = weapon.getWeaponType().getDamage();
+        target.wound(damage);
         energy -= weapon.getWeaponType().getStrain();
+        System.out.printf("%s attacks %s with his %s and deals %d damage", this.name, target.name, this.weapon.getName(), damage);
     }
 
-    /** UNIMPLEMENTED
-     * Allows the gladiator to heal
-     * @param amount
+    /**
+     * Increase hitPoints with 1-6
      */
-    public void heal(int amount){
-        this.hitPoints += amount;
+    private void heal(){
+        this.hitPoints += Dice.D6.roll();
+        System.out.printf("%s drinks a potion and heals %d HP!", this.name, this.hitPoints);
     }
 
     /**
@@ -59,8 +79,13 @@ public class Gladiator {
      * is successful.
      * @param amount is provided by the Dice.roll() method.
      */
-    public void wound(int amount){
+    private void wound(int amount){
         this.hitPoints -= amount;
+    }
+
+    void rest(){
+        this.energy += Dice.D6.roll();
+        System.out.printf("%s rests to regain energy!", this.name);
     }
 
     public String toString() {
