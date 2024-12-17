@@ -99,10 +99,12 @@ public class Game {
      */
     private void gameLoop(Scanner scanner) {
         boolean playing = true;
+        int difficulty = -6;
 
         while(playing) {
-            Arena playRound = new Arena();
+            Arena playRound = new Arena(difficulty);
             playRound.fight(player);
+            difficulty += 3;
 
             System.out.println("Do you want to play another opponent? (yes/no)");
                 String answer = scanner.nextLine().trim().toLowerCase();
