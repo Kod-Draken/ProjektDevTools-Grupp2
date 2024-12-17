@@ -5,16 +5,20 @@ Show menu
 
 Create the player with name and choose weapon
 
+Travel to arena
+  - Present opponent and player
+  - Randomize who starts
+
 Fight begins
+
+Present menu for actions
+  - Attack
+  - Heal
+  - Rest
+
+End of duel
   - if player is defeated, game over
   - if player wins, earn "reward"
     - proceed to next fight
 
-Player wins after defeating "X" opponents
-
 When game_over is reached, write players highscore in the .txt-file
-
-Classes
-main
-FightGame
-Player/Fighter
