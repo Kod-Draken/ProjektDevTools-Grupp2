@@ -65,7 +65,7 @@ public class Game {
                 """);
         String name = scanner.nextLine();
 
-        System.out.println("You also need a weapon. Choose from the options below:");
+        System.out.println("You also need a weapon. Choose from the options below: (1-3)");
         for (WeaponType weapon : WeaponType.values()){
             System.out.println(weapon.name());
         }
@@ -75,7 +75,7 @@ public class Game {
 
         String weapon = switch (weaponChoice) {
             case 1 -> "Gladius";
-            case 2 -> "Spear";
+            case 2 -> "Longsword";
             case 3 -> "Greataxe";
             default -> {
                 System.out.println("Invalid choice! Defaulting to Gladius.");
@@ -103,14 +103,22 @@ public class Game {
 
         while(playing) {
             Arena playRound = new Arena(difficulty);
-            playRound.fight(player);
+            playRound.fight(player, scanner);
             difficulty += 3;
 
-            System.out.println("Do you want to play another opponent? (yes/no)");
-                String answer = scanner.nextLine().trim().toLowerCase();
-                if (!answer.equals("yes")) {
-                    playing = false;
-                    gameOver();
+            // Clear the scanner
+            scanner.nextLine();
+            if (player.getHitPoints() < 0) {
+                System.out.println("You have fallen in battle...");
+                gameOver();
+            }
+            else {
+                System.out.println("Do you want to play another opponent? (yes/no)");
+                    String answer = scanner.nextLine().trim().toLowerCase();
+                    if (!answer.equals("yes")) {
+                        playing = false;
+                        gameOver();
+                }
             }
         }
     }
@@ -134,7 +142,7 @@ public class Game {
      * </p>
      */
     private void gameOver() {
-        System.out.println("You have fallen in battle!");
+        System.out.println("GAME OVER");
         System.out.println("Returning to the main menu...");
     }
 }
