@@ -148,5 +148,6 @@ public class Game {
         Score score = new Score(player.getName(),rounds);
         System.out.println("GAME OVER");
         System.out.println("Returning to the main menu...");
+        menu();
     }
 }

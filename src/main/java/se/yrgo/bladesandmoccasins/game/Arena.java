@@ -62,7 +62,7 @@ public class Arena {
             playerTurn = !playerTurn;
 
             // Display current HP and player Energy
-            System.out.printf("%n%s HP: %d Energy: %d%n%s HP: %d%n",
+            System.out.printf("%n%n%s HP: %d Energy: %d%n%s HP: %d%n",
                     player.getName(), player.getHitPoints(), player.getEnergy(),
                     opponent.getName(),opponent.getHitPoints());
             System.out.println();
@@ -72,7 +72,7 @@ public class Arena {
         String winner = player.getHitPoints() > 0 ? player.getName() : opponent.getName();
         System.out.println(winner + " wins the fight!");
         if (winner.equals(player.getName())){
-
+            System.out.println("You earned 100 points!");
         }
     }
 
