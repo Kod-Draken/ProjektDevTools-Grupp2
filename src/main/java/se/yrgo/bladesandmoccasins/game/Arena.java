@@ -49,17 +49,22 @@ public class Arena {
                     opponent.rest();
                 }
                 else {
-                    opponent.attack(player);
+                    try {
+                        opponent.attack(player);
+                    } catch (InsufficientEnergyException e) {
+                        // this will never happen.
+                        // the AI doesn't attack if energy is too low.
+                    }
                 }
             }
 
             // Alternate turns
             playerTurn = !playerTurn;
 
-            // Display current HP
-            System.out.printf("%n%s HP: %d | %s HP: %d%n",
-                    player.getName(), player.getHitPoints(),
-                    opponent.getName(), opponent.getHitPoints());
+            // Display current HP and player Energy
+            System.out.printf("%n%s HP: %d Energy: %d%n%s HP: %d%n",
+                    player.getName(), player.getHitPoints(), player.getEnergy(),
+                    opponent.getName(),opponent.getHitPoints());
             System.out.println();
         }
 

@@ -63,6 +63,7 @@ public class Game {
                You are just about to begin your career in the arena...
                But before that, I must ask.. What is your name?
                 """);
+
         String name = scanner.nextLine();
 
         System.out.println("You also need a weapon. Choose from the options below: (1-3)");

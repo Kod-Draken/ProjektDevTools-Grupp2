@@ -46,7 +46,12 @@ public class Gladiator {
                 """);
         int choice = scanner.nextInt();
         switch (choice){
-            case 1: attack(target); break;
+            case 1: try {
+                    attack(target);
+                    } catch (InsufficientEnergyException e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
             case 2: heal(); break;
             case 3: rest(); break;
         }
@@ -58,8 +63,11 @@ public class Gladiator {
      * to the target, and the strain is applied to the attacker.
      * @param target defined by the Arena.fight() method
      */
-    public void attack(Gladiator target){
+    public void attack(Gladiator target) throws InsufficientEnergyException {
         // implement a d20 roll to see if attack hits or misses
+        if (energy < weapon.getWeaponType().getStrain()){
+            throw new InsufficientEnergyException("Your energy is too low, you must rest!");
+        }
         int damage = weapon.getWeaponType().getDamage();
         target.wound(damage);
         energy -= weapon.getWeaponType().getStrain();

@@ -1,4 +1,4 @@
-package se.yrgo.bladesandmoccasins.ui;
+package se.yrgo.bladesandmoccasins.main;
 
 import se.yrgo.bladesandmoccasins.game.Game;
 
