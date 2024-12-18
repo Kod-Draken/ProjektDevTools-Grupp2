@@ -16,6 +16,7 @@ public class Game {
      * The {@code Gladiator} instance representing the player in the game.
      */
     private Gladiator player;
+    private int rounds;
 
     /**
      * Displays the main menu and handles user interaction to navigate through the game.
@@ -113,6 +114,7 @@ public class Game {
                 gameOver();
             }
             else {
+                rounds += 100;
                 System.out.println("Do you want to play another opponent? (yes/no)");
                     String answer = scanner.nextLine().trim().toLowerCase();
                     if (!answer.equals("yes")) {
@@ -131,7 +133,7 @@ public class Game {
      */
     private void displayHighScores() {
         System.out.println("High scores:");
-        Score score = new Score("dummy", 0);
+        Score score = new Score();
         System.out.println(score.toString());
     }
 
@@ -142,6 +144,7 @@ public class Game {
      * </p>
      */
     private void gameOver() {
+        Score score = new Score(player.getName(),rounds);
         System.out.println("GAME OVER");
         System.out.println("Returning to the main menu...");
     }

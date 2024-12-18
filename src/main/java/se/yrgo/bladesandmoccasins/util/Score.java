@@ -12,6 +12,7 @@ public class Score {
     private String name;
     private int value;
 
+    public Score() {}
     public Score(String name, int value) {
         this.name = name;
         this.value = value;
@@ -46,7 +47,7 @@ public class Score {
         sortedScores.sort((a, b) -> b.getValue().compareTo(a.getValue()));
 
         // Skriv de sorterade poängen tillbaka till filen
-        try (BufferedWriter writer = Files.newBufferedWriter(Path.of("Score.txt"), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)) {
+        try (BufferedWriter writer = Files.newBufferedWriter(Path.of("src/main/resources/Score.txt"), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)) {
             for (Map.Entry<String, Integer> entry : sortedScores) {
                 writer.write(entry.getKey() + " " + entry.getValue());
                 writer.newLine();
@@ -60,7 +61,7 @@ public class Score {
     private Map<String, Integer> loadScores() {
         Map<String, Integer> scores = new HashMap<>();
 
-        try (BufferedReader reader = Files.newBufferedReader(Path.of("Score.txt"))) {
+        try (BufferedReader reader = Files.newBufferedReader(Path.of("src/main/resources/Score.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(" ");
@@ -80,7 +81,7 @@ public class Score {
     public String toString() {
         StringBuilder topScores = new StringBuilder();
 
-        try (BufferedReader reader = Files.newBufferedReader(Path.of("Score.txt"))) {
+        try (BufferedReader reader = Files.newBufferedReader(Path.of("src/main/resources/Score.txt"))) {
             String line;
 
             for(int rank = 1;(line = reader.readLine()) != null && rank <= 10; rank++){
