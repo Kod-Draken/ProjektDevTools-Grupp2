@@ -1,3 +1,4 @@
+Daniel 100
 Mattias 200
 Dummy2 20
 Dummy1 10
