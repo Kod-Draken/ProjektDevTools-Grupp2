@@ -8,6 +8,9 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.*;
 
+/**
+ * @author Daniel
+ */
 public class Score {
     private String name;
     private int value;

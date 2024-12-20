@@ -7,6 +7,7 @@ import se.yrgo.bladesandmoccasins.util.WeaponType;
 import java.util.Scanner;
 
 /**
+ * @author Emilia, Mattias
  * The {@code Game} class represents the main entry point for the "Blades and Moccasins" game.
  * It provides a menu system, handles player creation, and controls the main game loop.
  */
@@ -19,6 +20,7 @@ public class Game {
     private int rounds;
 
     /**
+     * @author Emilia
      * Displays the main menu and handles user interaction to navigate through the game.
      * <p>
      * The menu offers options to start the game, view high scores, or exit the program.
@@ -51,6 +53,7 @@ public class Game {
     }
 
     /**
+     * @author Emilia
      * Starts the game by prompting the player to enter their name and select a weapon.
      * <p>
      * This method also initializes the {@code Gladiator} instance and begins the game loop.
@@ -92,6 +95,7 @@ public class Game {
     }
 
     /**
+     * @author Emilia, Mattias
      * Controls the main game loop where the player battles opponents in the arena.
      * <p>
      * The loop continues until the player chooses to stop or is defeated.
@@ -127,6 +131,7 @@ public class Game {
     }
 
     /**
+     * @author Emilia
      * Displays the high scores of the game.
      * <p>
      * This method currently displays a dummy high score as a placeholder.
@@ -139,6 +144,7 @@ public class Game {
     }
 
     /**
+     * @author Emilia
      * Ends the game and displays a message indicating that the player has fallen in battle.
      * <p>
      * The player is then returned to the main menu.
