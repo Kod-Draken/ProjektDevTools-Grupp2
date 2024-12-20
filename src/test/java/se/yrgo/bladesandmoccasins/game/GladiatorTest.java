@@ -7,10 +7,16 @@ import se.yrgo.bladesandmoccasins.util.WeaponType;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * @author Mattias
+ */
 class GladiatorTest {
     private Gladiator gladiator1;
     private Gladiator gladiator2;
 
+    /**
+     * Ensures we have Gladiators to test the methods with.
+     */
     @BeforeEach
     void setUp() {
         gladiator1 = new Gladiator("player", "Gladius");

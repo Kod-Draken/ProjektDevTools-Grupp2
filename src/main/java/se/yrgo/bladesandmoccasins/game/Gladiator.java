@@ -5,6 +5,10 @@ import se.yrgo.bladesandmoccasins.util.Weapon;
 
 import java.util.Scanner;
 
+/**
+ * @author Mattias
+ * Represents a fighting entity in the arena
+ */
 public class Gladiator {
     private final String name;
     private int hitPoints;
@@ -25,9 +29,9 @@ public class Gladiator {
 
     /**
      * This constructor is used for generated opponent gladiators.
-     * @param name
-     * @param hitPoints
-     * @param energy
+     * @param name randomized from the name and suffix txt-files in resources.
+     * @param hitPoints modified by the difficulty modifier in Game
+     * @param energy modified by the difficulty modifier in Game
      * @param weapon All parameters are provided by the generateOpponent() method in Arena.
      */
     public Gladiator(String name, int hitPoints, int energy, String weapon) {
@@ -37,6 +41,12 @@ public class Gladiator {
         this.energy = energy;
     }
 
+    /**
+     * When fighing, each Gladiator takes a turn, the player has some free choices
+     * to make, the AI is limited to attacking and resting.
+     * @param target a Gladiator.
+     * @param scanner required for the user to make choices.
+     */
     public void turn(Gladiator target, Scanner scanner){
         System.out.println("""
                 What action would you like to take?
@@ -58,9 +68,8 @@ public class Gladiator {
     }
 
     /**
-     * The main procedure of a duel is the attack, we roll the dice
-     * for the weapon used by the gladiator, the damage is applied
-     * to the target, and the strain is applied to the attacker.
+     * Attack a target Gladiator, rolls the dice of the respective weapon used
+     * and subtracts from the targets health-pool via the wound() method.
      * @param target defined by the Arena.fight() method
      */
     public void attack(Gladiator target) throws InsufficientEnergyException {

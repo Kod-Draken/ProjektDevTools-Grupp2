@@ -1,5 +1,8 @@
 package se.yrgo.bladesandmoccasins.util;
 
+/**
+ * @author Mattias
+ */
 public class Weapon {
     private final String name;
     private final WeaponType weaponType;
@@ -9,7 +12,7 @@ public class Weapon {
      * The temp variable is supposed to be a failsafe if i/o
      * goes wrong, the default value returned will therefor
      * always be Weapon.GLADIUS.
-     * @param provided by the menu in Main-class.
+     * @param name provided by the menu in Main-class.
      */
     public Weapon(String name){
         this.name = name;
@@ -28,7 +31,7 @@ public class Weapon {
     /**
      * This method is used for generating opponents, they will always have
      * a random weapon, to make the game more random.
-     * @return
+     * @return a random weapon from the enum WeaponType.
      */
     public static String getRandomWeapon(){
         return WeaponType.values()[(int) (Math.random() * WeaponType.values().length)].name();

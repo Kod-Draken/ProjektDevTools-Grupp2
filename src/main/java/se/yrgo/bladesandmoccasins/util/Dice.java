@@ -1,6 +1,7 @@
 package se.yrgo.bladesandmoccasins.util;
 
 /**
+ * @author Mattias
  * Represents polyhedral dices, each have its own amount of sides
  */
 public enum Dice {

@@ -1,5 +1,10 @@
 package se.yrgo.bladesandmoccasins.util;
 
+/**
+ * @author Mattias
+ * Relies on enum Dice to get corresponding damage
+ * Each type has an energy strain.
+ */
 public enum WeaponType {
     GLADIUS(Dice.D6, 2),
     LONGSWORD(Dice.D8, 4),

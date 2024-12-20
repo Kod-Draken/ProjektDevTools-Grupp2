@@ -10,6 +10,7 @@ import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
+ * @author Mattias
  * simulates the fight in the arena, keeps track of the difficulty.
  * The difficulty is increased each round.
  */
