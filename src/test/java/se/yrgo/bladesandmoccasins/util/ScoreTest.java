@@ -1,9 +1,8 @@
-package se.yrgo.bladesandmoccasins;
+package se.yrgo.bladesandmoccasins.util;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import se.yrgo.bladesandmoccasins.util.Score;
 
 import java.io.IOException;
 import java.nio.file.Files;
