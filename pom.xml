@@ -36,7 +36,7 @@
                     <archive>
                         <manifest>
                             <mainClass>
-                                ui.Main
+                                se.yrgo.bladesandmoccasins.main.Main
                             </mainClass>
                         </manifest>
                     </archive>
