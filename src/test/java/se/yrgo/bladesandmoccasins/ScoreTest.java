@@ -11,6 +11,9 @@ import java.nio.file.Path;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * @author Daniel
+ */
 public class ScoreTest {
     private static final Path SCORE_FILE = Path.of("Score.txt");
 
