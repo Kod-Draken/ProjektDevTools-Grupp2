@@ -70,6 +70,8 @@ public class Game {
 
         String name = scanner.nextLine();
 
+        name = name.replaceAll(" ", "_");
+
         System.out.println("You also need a weapon. Choose from the options below: (1-3)");
         for (WeaponType weapon : WeaponType.values()){
             System.out.println(weapon.name());
