@@ -137,7 +137,7 @@ public class Game {
      * This method currently displays a dummy high score as a placeholder.
      * </p>
      */
-    private void displayHighScores() {
+    void displayHighScores() {
         System.out.println("High scores:");
         Score score = new Score();
         System.out.println(score.toString());
